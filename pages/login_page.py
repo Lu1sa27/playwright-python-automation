@@ -5,9 +5,9 @@ class LoginPage(BasePage):
     def __init__(self, page):        
         #Initialize the login page elements
         super().__init__(page)
-        self.username_input = "#user-name"
-        self.password_input = "#password"
-        self.login_button = "#login-button"
+        self.username_input = "[data-test='username']"
+        self.password_input = "[data-test='password']"
+        self.login_button = "[data-test='login-button']"
         self.error_message = "[data-test='error']"
 
     def login (self, username, password):
