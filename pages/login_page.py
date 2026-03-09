@@ -1,14 +1,11 @@
 from pages.base_page import BasePage
 
 class LoginPage(BasePage):
-    #  Login page elements and methods
-    def __init__(self, page):        
-        #Initialize the login page elements
-        super().__init__(page)
-        self.username_input = "[data-test='username']"
-        self.password_input = "[data-test='password']"
-        self.login_button = "[data-test='login-button']"
-        self.error_message = "[data-test='error']"
+
+    username_input = "[data-test='username']"
+    password_input = "[data-test='password']"
+    login_button = "[data-test='login-button']"
+    error_message = "[data-test='error']"
 
     def login (self, username, password):
         # Perform login with given credentials

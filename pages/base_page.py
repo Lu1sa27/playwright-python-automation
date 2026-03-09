@@ -11,12 +11,12 @@ class BasePage:
 
     def click(self, selector):
         # click on an element specified by the CSS selector        
-        self.page.click(selector)
+        self.page.locator(selector).click()
 
     def fill(self, selector, text):
         # fill an input field specified by the CSS selector with the provided text
-        self.page.fill(selector, text)
+        self.page.locator(selector).fill(text)
 
     def get_text(self, selector):
         # get the text content of an element specified by the CSS selector
-        return self.page.text_content(selector)
+        return self.page.locator(selector).inner_text()
