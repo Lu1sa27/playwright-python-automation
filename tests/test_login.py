@@ -5,7 +5,6 @@ from playwright.sync_api import expect
 def test_successful_login(page, base_url):
     # Open page
     page.goto(base_url)
-    print(base_url)
     #  Fill in credentials
     login_page = LoginPage(page)
     login_page.login("standard_user", "secret_sauce")
@@ -13,7 +12,7 @@ def test_successful_login(page, base_url):
     expect(page.locator(".title")).to_have_text("Products")
 
     # Wait for redirect to inventory page
-    page.wait_for_url("**inventory**")
+    expect(page).to_have_url("https://www.saucedemo.com/inventory.html")
     
     #  Assert that we have been redirected to the inventory page
     assert "saucedemo" in page.url
@@ -21,7 +20,6 @@ def test_successful_login(page, base_url):
 def test_invalid_login(page, base_url):
     # Open page
     page.goto(base_url)
-    print(base_url)
     #  Fill in credentials
     login_page = LoginPage(page)
     login_page.login("invalid_user", "wrong_password")
