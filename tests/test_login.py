@@ -1,10 +1,11 @@
-import pytest
+import pytest 
 from pages.login_page import LoginPage
 from playwright.sync_api import expect
 
-def test_successful_login(page):
+def test_successful_login(page, base_url):
     # Open page
-    page.goto("https://www.saucedemo.com")
+    page.goto(base_url)
+    print(base_url)
     #  Fill in credentials
     login_page = LoginPage(page)
     login_page.login("standard_user", "secret_sauce")
@@ -17,9 +18,10 @@ def test_successful_login(page):
     #  Assert that we have been redirected to the inventory page
     assert "saucedemo" in page.url
 
-def test_invalid_login(page):
+def test_invalid_login(page, base_url):
     # Open page
-    page.goto("https://www.saucedemo.com")
+    page.goto(base_url)
+    print(base_url)
     #  Fill in credentials
     login_page = LoginPage(page)
     login_page.login("invalid_user", "wrong_password")
