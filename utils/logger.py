@@ -1,4 +1,4 @@
-import logger
+import logging
 
 def get_logger(name=__name__):
     logger = logging.getLogger(name)
@@ -7,9 +7,9 @@ def get_logger(name=__name__):
     if not logger.handlers:
         console_handler = logging.StreamHandler()
         formatter = logging.Formatter(
-            '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            '%(asctime)s - %(levelname)s - %(message)s'
         )
-        console_handler.setFormater(formatter)
+        console_handler.setFormatter(formatter)
         logger.addHandler(console_handler)
-    
+
     return logger
